@@ -1,14 +1,16 @@
-import click
 import logging
+
+import click
 from exceptions.image import InputFormatError
 from ocr_engine.pytess import PyTesseractOCR
 from pipeline.image import ImagePipeline
 from pipeline.pdf import PDFPipeline
 from transforms.postprocessing import PostProcessor
 from transforms.preprocessing import TessOCRPreprocessor
-from utils.constants import LOGGER_NAME, SUPPORTED_EXTENSIONS, SUPPORTED_IMG_EXTENSIONS, SUPPORTED_FILE_EXTENSIONS
-from utils.other import write_lines_to_file, get_extension
-
+from utils.constants import (LOGGER_NAME, SUPPORTED_EXTENSIONS,
+                             SUPPORTED_FILE_EXTENSIONS,
+                             SUPPORTED_IMG_EXTENSIONS)
+from utils.other import get_extension, write_lines_to_file
 
 logger = logging.getLogger(LOGGER_NAME)
 logger.setLevel(logging.INFO)
@@ -30,13 +32,17 @@ def main(output_path, input_path, verbose):
     logger.info("Checked extension")
 
     if not verbose:
-        logging.basicConfig(filename='logs.txt',
-                            format='%(name)s - %(asctime)s - %(levelname)s - %(message)s',
-                            datefmt='%Y-%m-%d %H:%M:%S')
+        logging.basicConfig(
+            filename='logs.txt',
+            format='%(name)s - %(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
     else:
-        logging.basicConfig(level=logging.DEBUG,
-                            format='%(name)s - %(asctime)s - %(levelname)s - %(message)s',
-                            datefmt='%Y-%m-%d %H:%M:%S')
+        logging.basicConfig(
+            level=logging.DEBUG,
+            format='%(name)s - %(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
 
     preprocessor = TessOCRPreprocessor()
     ocr = PyTesseractOCR()

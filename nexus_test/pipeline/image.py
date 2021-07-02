@@ -1,6 +1,9 @@
-import cv2
-from .base import Pipeline
 from logging import getLogger
+
+import cv2
+
+from .base import Pipeline
+
 logger = getLogger('main logger')
 
 

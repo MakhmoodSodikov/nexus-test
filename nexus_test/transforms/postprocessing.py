@@ -1,9 +1,12 @@
-import regex as re
 from logging import getLogger
+
+import regex as re
+
 logger = getLogger('main logger')
 
 
 class PostProcessor:
+
     def __init__(self):
         pass
 

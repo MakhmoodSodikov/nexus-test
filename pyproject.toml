@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "nexus-test"
+version = "0.1.0"
+description = ""
+authors = ["MakhmoodSodikov <sodikov.mmo@phystech.edu>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+isort = "^5.9.1"
+jupyter = "^1.0.0"
+click = "^8.0.1"
+yapf = "^0.31.0"
+opencv-python = "^4.5.2"
+matplotlib = "^3.4.2"
+deskew = "^0.10.30"
+nltk = "^3.6.2"
+pdf2image = "^1.16.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+numpy = "^1.21.0"
+pytesseract = "^0.3.8"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

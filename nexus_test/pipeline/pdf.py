@@ -1,9 +1,10 @@
-from .base import Pipeline
 from logging import getLogger
+
 from pdf2image import convert_from_path
 from pdf2image.exceptions import (PDFInfoNotInstalledError, PDFPageCountError,
                                   PDFSyntaxError)
 
+from .base import Pipeline
 
 logger = getLogger('main logger')
 
@@ -12,7 +13,6 @@ class PDFPipeline(Pipeline):
 
     def __init__(self, preprocessor, ocr, postprocessor):
         super().__init__(preprocessor, ocr, postprocessor)
-
 
     @staticmethod
     def pdf_to_image(path):
@@ -36,5 +36,5 @@ class PDFPipeline(Pipeline):
 
         for image in images:
             text.append(self.ocr.transform(image))
-            
+
         return text

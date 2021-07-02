@@ -1,11 +1,12 @@
 import math
 from abc import ABC, abstractmethod
+from logging import getLogger
 from typing import Tuple, Union
+
 import cv2
 import numpy as np
 from deskew import determine_skew
 
-from logging import getLogger
 logger = getLogger('main logger')
 
 

@@ -2,7 +2,6 @@ import cv2
 import matplotlib.pyplot as plt
 
 
-
 def display(im_path: str) -> None:
     """
     :param im_path: Path of the input image to be displayed

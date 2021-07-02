@@ -1,8 +1,9 @@
+from logging import getLogger
 
 import numpy as np
 
 from .base import Preprocessor
-from logging import getLogger
+
 logger = getLogger('main logger')
 
 
