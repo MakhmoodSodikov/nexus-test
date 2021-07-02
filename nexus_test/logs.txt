@@ -1,0 +1,8 @@
+__main__ - 2021-07-02 13:14:31 - INFO - Starting new session
+main logger - 2021-07-02 13:17:44 - INFO - Starting new session
+main logger - 2021-07-02 13:17:44 - INFO - Transforming image
+main logger - 2021-07-02 13:20:33 - INFO - Starting new session
+main logger - 2021-07-02 13:20:33 - INFO - Transforming image
+main logger - 2021-07-02 13:20:33 - INFO - OCR started at 1625221233.889879...
+main logger - 2021-07-02 13:20:35 - INFO - OCR done at 1625221235.4796631...
+main logger - 2021-07-02 13:20:35 - INFO - OCR took 1.5897841453552246s
