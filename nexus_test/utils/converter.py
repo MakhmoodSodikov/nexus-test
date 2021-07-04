@@ -15,7 +15,7 @@ def pdf_to_image(path: str) -> list:
     :param path: Path to the pdf file
     :return: list of np.array images
     """
-    images = None
+    images = []
 
     try:
         images = convert_from_path(path)
