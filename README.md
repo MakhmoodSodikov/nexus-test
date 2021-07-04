@@ -25,4 +25,4 @@ I noticed unique symbols in the pdf file, like diamonds or spades. On these, the
 
 I designed the architecture of the project so that I could easily replace the components of the current solution. 
 
-Thus, I would suggest changing the model itself (instead of tesseract use a friend
+Thus, I would suggest changing the model itself (instead of tesseract use another better model, e.g. pretrained CRNN).

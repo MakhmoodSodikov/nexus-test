@@ -2,34 +2,58 @@ from logging import getLogger
 
 import regex as re
 
+from .base import Postprocessor
+
 logger = getLogger('main logger')
 
 
-class PostProcessor:
+class TessOCRPostprocessor(Postprocessor):
+
+    """
+    Class of the baseline image postprocessor for PyTesseract pipeline
+    """
 
     def __init__(self):
-        pass
+        super().__init__()
 
-    def forward(self, text):
-        denoised_text = self.redundant_symbols_deleter(text)
+    def transform(self, text: str) -> str:
+        """
+        :param text: Text to be postprocessed
+        :return: Postprocessed (denoised) text
+        """
+        denoised_text = self._redundant_symbols_deleter(text)
         return denoised_text
 
     @staticmethod
-    def redundant_symbols_deleter(text, filler='.....') -> list:
-        logger.info('Deleting redundant symbols')
-        splitted_text = text.split('\n')
-        new_text = []
-        # regexp for finding couple of repeating symbols
-        # it can be "thresholded" by changing parameter in curly brackets
+    def _redundant_symbols_deleter(text, filler='.....', tab='\n') -> list:
+        """
+        :param text: Text to be cleaned of redundant symbols
+        :param filler: Replacement for noisy word, by default equals to dots
+        :param tab: Tab symbol, e.g. could be empty string or \n, by default equals to \n
+        :return: Returns text cleaned from redundant symbols
+
+        Notion: rx variable is the regular expression for finding group of utterances with 3 or more repeating symbols
+                It can be "thresholded" by changing parameter in curly brackets
+        """
+
         rx = re.compile(r'(.)\1{2,}')
 
-        for line in splitted_text:
+        logger.info('Deleting redundant symbols')
+
+        new_text = []
+
+        for line in text.split('\n'):
             new_line = []
+
             for word in line.split(' '):
-                if not rx.search(word):
-                    new_line.append(word)
+                if word != '':
+                    if not rx.search(word):
+                        new_line.append(word)
+                    else:
+                        new_line.append(filler)
                 else:
-                    new_line.append(filler)
+                    new_line.append(tab)
+            new_line.append('\n')
             new_text.append(' '.join(new_line))
 
         return new_text
