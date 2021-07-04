@@ -26,3 +26,11 @@ I noticed unique symbols in the pdf file, like diamonds or spades. On these, the
 I designed the architecture of the project so that I could easily replace the components of the current solution. 
 
 Thus, I would suggest changing the model itself (instead of tesseract use another better model, e.g. pretrained CRNN).
+
+### Usage
+
+From main directory run 
+
+`python nexus_test/main.py --input_path='input/path.jpg' --output_path='output/path'`
+
+If you want verbosed logging, use `--verbose` flag.
