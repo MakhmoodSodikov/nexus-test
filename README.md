@@ -33,7 +33,7 @@ To install run these commands in root directory:
 
 * `git clone https://github.com/MakhmoodSodikov/nexus-test.git`
 * `pip install poetry`
-* `cd nexus-text`
+* `cd nexus-test`
 * `poetry shell`
 * `poetry add pyproject.toml`
 
